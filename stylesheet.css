@@ -63,12 +63,6 @@ table {
 	
 	
 }
-#screenBack {
-	background-color: bisque;
-}
-#screen {
-	background-color: cadetblue;
-}
 .buttonGrid {
 	display: grid;
 	grid-gap: 10px;
@@ -90,12 +84,14 @@ table {
 	background-color: rgb(42, 163, 233);
 }
 #screen{
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: rgb(2, 49, 2);
 	min-height: 80px;
   	padding: 20px;
-  	border: 2px black solid;
+  	border: 2px rgb(78, 78, 78) solid;
   	border-radius: 5px;
   	margin-bottom: 20px;
-  	background-color: teal;
+  	background-color: rgb(32, 145, 145);
   	font-size: 29px;
   	text-align: right;
   	word-wrap: break-word;
