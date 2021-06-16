@@ -35,7 +35,7 @@ body {
 	justify-content: center;
 	align-content: center;
 	box-sizing: border-box;
-	font-size: 15px;
+	font-size: 10rem;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 ol, ul {
@@ -73,7 +73,7 @@ table {
 	border: 1px black solid;
 	border-radius: 50%;
 	background-color:gainsboro;
-	font-size: 20px;
+	font-size: 2rem;
 	outline: none;
 	cursor: pointer;
 }
@@ -92,7 +92,7 @@ table {
   	border-radius: 5px;
   	margin-bottom: 20px;
   	background-color: rgb(32, 145, 145);
-  	font-size: 29px;
+  	font-size: 2rem;
   	text-align: right;
   	word-wrap: break-word;
   	word-break: break-all;
