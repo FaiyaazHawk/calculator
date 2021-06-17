@@ -1,54 +1,66 @@
-let a;
-let operator
-let b;
-let total;
+let a = 0;
+let operator = ''
+let b =0;
+let total = 0;
+
+const screen = document.getElementById('screen');
+const buttons = document.getElementsByClassName('btn');
+const operators = document.getElementsByClassName('operator')
+const decimal = document.getElementsByClassName('decimal')
+const equal = document.getElementsByClassName('equal')
+const allClear = document.getElementsByClassName('spanAc')
+const del = document.getElementsByClassName('spanC')
+
 
 /// listening for number buttons
-buttons = document.getElementsByClassName('btn');
+
 buttonsArr = Array.from(buttons);
 buttonsArr.forEach(element => {
     element.addEventListener('click', function(e){
-        if (e.target.dataset.number){
-        console.log(e.target.dataset.number)
-        } else {
-            return;
-        }
+        num = e.target.dataset.number
+        if (operator === ''){
+            screen.textContent += num
+        } 
     })
 });
-console.log(buttons);
 /// listening for operator presses
-operators = document.getElementsByClassName('operator')
+
 operatorsArr = Array.from(operators);
 operatorsArr.forEach( element => {
     element.addEventListener('click', function(e) {
-        console.log(e.target.dataset.operator)
+        operator = (e.target.dataset.operator)
+        
     })
 });
 /// listening for decimal
-decimal = document.getElementsByClassName('decimal')
+
 decimalArr = Array.from(decimal);
 decimalArr[0].addEventListener('click', function(e) {
     console.log(e.target.dataset.decimal)
 })
 /// listening for equal
-equal = document.getElementsByClassName('equal')
+
 equalArr = Array.from(equal);
 equalArr[0].addEventListener('click', function(e) {
     console.log(e.target.dataset.equal)
 })
 ///listening for AC
-allClear = document.getElementsByClassName('spanAc')
+
 allClearArr = Array.from(allClear)
 allClearArr[0].addEventListener('click', function(e) {
-    console.log(e.target.dataset.clear)
+    a=0;
+    b=0;
+    total=0;
+    resetScreen();
 })
 ///listening for Del
-del = document.getElementsByClassName('spanC')
-delArr = Array.from(del);
-delArr[0].addEventListener('click', function(e) {
-    console.log(e.target.dataset.delete)
-})
 
+delArr = Array.from(del);
+delArr[0].addEventListener('click', function(e){
+    console.log(screen.textContent);
+    screen.textContent = screen.textContent.toString().slice(0, -1)
+    console.log(screen.textContent);
+})
 ///helper functions
 
 
@@ -66,4 +78,9 @@ function multiply (a,b) {
 function divide (a,b) {
     return a/b;
 }
-
+function resetScreen() {
+    screen.textContent = '';
+}
+function deleteNumber() {
+    screen.textContent = screen.textContent.toString().slice(0, -1)
+}
