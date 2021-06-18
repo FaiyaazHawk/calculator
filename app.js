@@ -4,7 +4,7 @@ let b =0;
 let total = 0;
 
 const screen = document.getElementById('screen');
-const buttons = document.getElementsByClassName('btn');
+const buttons = document.getElementsByClassName('num');
 const operators = document.getElementsByClassName('operator')
 const decimal = document.getElementsByClassName('decimal')
 const equal = document.getElementsByClassName('equal')
