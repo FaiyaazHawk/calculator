@@ -18,9 +18,7 @@ buttonsArr = Array.from(buttons);
 buttonsArr.forEach(element => {
     element.addEventListener('click', function(e){
         num = e.target.dataset.number
-        if (operator === ''){
-            screen.textContent += num
-        } 
+        screen.textContent += num
     })
 });
 /// listening for operator presses
@@ -29,6 +27,15 @@ operatorsArr = Array.from(operators);
 operatorsArr.forEach( element => {
     element.addEventListener('click', function(e) {
         operator = (e.target.dataset.operator)
+        if (a === 0) {
+            a = screen.textContent;
+            resetScreen();
+        } else if (total !==0) {
+            resetScreen();
+            a = total;
+            
+            
+        }
         
     })
 });
@@ -42,7 +49,12 @@ decimalArr[0].addEventListener('click', function(e) {
 
 equalArr = Array.from(equal);
 equalArr[0].addEventListener('click', function(e) {
-    console.log(e.target.dataset.equal)
+    if (a !== 0) {
+        b = screen.textContent;
+    screen.textContent = operate(operator,a,b)
+    total = operate(operator,a,b)
+    } 
+    
 })
 ///listening for AC
 
@@ -51,18 +63,40 @@ allClearArr[0].addEventListener('click', function(e) {
     a=0;
     b=0;
     total=0;
+    operator = ''
     resetScreen();
 })
 ///listening for Del
 
 delArr = Array.from(del);
 delArr[0].addEventListener('click', function(e){
-    console.log(screen.textContent);
     screen.textContent = screen.textContent.toString().slice(0, -1)
-    console.log(screen.textContent);
 })
 ///helper functions
+function resetScreen() {
+    screen.textContent = '';
+}
+function deleteNumber() {
+    screen.textContent = screen.textContent.toString().slice(0, -1)
+}
+function operate(operator,a,b) {
+    a = Number(a);
+    b = Number(b);
 
+    switch(operator) {
+        case "+":
+           return add (a,b);
+        case '-':
+            return subtract (a,b);
+            
+        case "*":
+            return multiply (a,b);
+            
+        case '/':
+            if (b===0) {alert('No you dont!!')}
+            return divide (a,b);
+    }
+}
 
 
 ///operator functions
@@ -78,9 +112,4 @@ function multiply (a,b) {
 function divide (a,b) {
     return a/b;
 }
-function resetScreen() {
-    screen.textContent = '';
-}
-function deleteNumber() {
-    screen.textContent = screen.textContent.toString().slice(0, -1)
-}
+
