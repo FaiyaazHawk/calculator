@@ -43,7 +43,8 @@ operatorsArr.forEach( element => {
 
 decimalArr = Array.from(decimal);
 decimalArr[0].addEventListener('click', function(e) {
-    console.log(e.target.dataset.decimal)
+    if (screen.textContent.includes(".")) return;
+    screen.textContent += ".";
 })
 /// listening for equal
 
